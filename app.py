@@ -36,5 +36,34 @@ def get_users3():
         }
     })
 
+@app.route("/api/v1/user/add", methods=["POST"])
+def get_users4():
+    email = request.form.get('email')
+    name = request.form.get('name')
+    user = request.form.get('id')
+
+    return jsonify({
+        'payload': {
+            'email': email,
+            'name': name,
+            'id': user
+        }
+    })
+
+@app.route("/api/v1/user/create", methods=["POST"]) 
+def create_user5():
+    data = request.get_json()  
+    email = data.get('email')  
+    name = data.get('name')      
+    user_id = data.get('id')     
+
+    return jsonify({
+        'payload': {
+            'email': email,
+            'name': name,
+            'id': user_id
+        }
+    })
+
 if __name__ == "__main__":
     app.run(debug=True)
